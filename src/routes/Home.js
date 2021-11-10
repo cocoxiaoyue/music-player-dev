@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
-
   render() {
     return (
       <div>
-        <p>This is Home!</p>
+        This is Home!
+        <Link to="/about">goto Home</Link>
       </div>
     );
   }

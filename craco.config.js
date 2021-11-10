@@ -13,7 +13,8 @@ module.exports = {
       '@hooks': pathResolve('src/hooks'),
       '@pages': pathResolve('src/pages'),
       '@store': pathResolve('src/store'),
-      '@utils': pathResolve('src/utils')
+      '@utils': pathResolve('src/utils'),
+      '@reducers': pathResolve('src/reducers')
       // 此处是一个示例，实际可根据各自需求配置
     }
   },
