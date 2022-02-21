@@ -1,30 +1,52 @@
 import React from "react";
-import './index.css';
+import "./index.less";
+
+import { UnlockOutlined } from "@ant-design/icons";
 
 class Footer extends React.Component {
   state = {
-    test: 1111
-  }
-  componentDidMount() {
-    this.setState({
-      test: 55555,
-      bottom: -53
-    })
-    console.log(this.state.test)
-  }
+    test: 1111,
+    showFoot: false,
+    lockFoot: false,
+  };
+  componentDidMount() {}
   topContnteOver = () => {
-    console.log('topContnteOver')
+    if (!this.state.lockFoot) {
+      this.setState({
+        showFoot: true,
+      });
+    }
+  };
+  topContnteLeave = () => {
+    if (!this.state.lockFoot) {
+      this.setState({
+        showFoot: false,
+      });
+    }
+  };
+  lockOnClick = () => {
     this.setState({
-      bottom: 0
-    })
-  }
+      lockFoot: !this.state.lockFoot,
+    });
+  };
   render() {
     return (
-      <div className="Footer-content" style={{ bottom: `${this.state.bottom}}px` }}>
-        <div className="footer-lock" onMouseOver={() => this.topContnteOver()} ></div>
-        <div className="footer" ></div>
-      </div >
-    )
+      <div
+        onMouseLeave={() => this.topContnteLeave()}
+        className={
+          this.state.showFoot
+            ? "Footer-content footer-show"
+            : "Footer-content footer-hidden"
+        }
+      >
+        <div className="footer-lock" onMouseOver={() => this.topContnteOver()}>
+          <div className="lock" onClick={() => this.lockOnClick()}>
+            <UnlockOutlined style={{ color: "#fff" }} />
+          </div>
+        </div>
+        <div className="footer"></div>
+      </div>
+    );
   }
 }
 
