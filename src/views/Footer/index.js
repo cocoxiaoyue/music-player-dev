@@ -1,11 +1,10 @@
 import React from "react";
 import "./index.less";
 
-import { UnlockOutlined } from "@ant-design/icons";
+import { UnlockOutlined, LockOutlined } from "@ant-design/icons";
 
 class Footer extends React.Component {
   state = {
-    test: 1111,
     showFoot: false,
     lockFoot: false,
   };
@@ -41,7 +40,11 @@ class Footer extends React.Component {
       >
         <div className="footer-lock" onMouseOver={() => this.topContnteOver()}>
           <div className="lock" onClick={() => this.lockOnClick()}>
-            <UnlockOutlined style={{ color: "#fff" }} />
+            {this.state.lockFoot ? (
+              <LockOutlined style={{ color: "#fff" }} />
+            ) : (
+              <UnlockOutlined style={{ color: "#fff" }} />
+            )}
           </div>
         </div>
         <div className="footer"></div>
