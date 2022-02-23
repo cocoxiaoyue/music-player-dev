@@ -2,11 +2,12 @@ import React from "react";
 import "./index.less";
 
 import { UnlockOutlined, LockOutlined } from "@ant-design/icons";
+import AudioPlayer from "@components/audioPlayer";
 
 class Footer extends React.Component {
   state = {
-    showFoot: false,
-    lockFoot: false,
+    showFoot: true, // 暂时设置为true
+    lockFoot: true, // 暂时设置为true
   };
   componentDidMount() {}
   topContnteOver = () => {
@@ -47,7 +48,9 @@ class Footer extends React.Component {
             )}
           </div>
         </div>
-        <div className="footer"></div>
+        <div className="footer">
+          <AudioPlayer />
+        </div>
       </div>
     );
   }
